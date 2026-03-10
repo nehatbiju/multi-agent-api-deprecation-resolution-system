@@ -1,0 +1,11 @@
+{
+    "type": "bug",
+    "bug_info": {
+        "error_message": "TypeError - 'Message' object is not subscriptable",
+        "stack_trace": "Traceback (most recent call last):\n  File \"/app/main.py\", line 42, in handle_request\n    reply = get_openai_response(\"Hello user!\")\n  File \"/app/llm_client.py\", line 17, in get_openai_response\n    return response.choices[0].message[\"content\"]\nTypeError: 'Message' object is not subscriptable",
+        "failing_functions": [
+            "handle_request",
+            "get_openai_response"
+        ]
+    }
+}

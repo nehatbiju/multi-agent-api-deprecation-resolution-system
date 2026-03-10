@@ -1,0 +1,7 @@
+{
+  "openai": {
+    "model": "gemini-2.0-flash-exp-vision",
+    "endpoint": "https://api.openai.com/v1",
+    "timeout": 30
+  }
+}

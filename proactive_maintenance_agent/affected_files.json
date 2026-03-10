@@ -1,0 +1,40 @@
+{
+  "files_found": 7,
+  "affected_files": [
+    {
+      "filepath": "config/models.json",
+      "confidence": 0.7968124999999999,
+      "file_content": "\n{\n  \"primary_model\": \"gpt-4-turbo-preview\",\n  \"backup_model\": \"gpt-4\",\n  \"temperature\": 0.7\n}\n"
+    },
+    {
+      "filepath": "schemas/model_config.py",
+      "confidence": 0.72925,
+      "file_content": "\n\"\"\"Model configuration schema\"\"\"\n\nclass ModelConfig:\n    \"\"\"Configuration for LLM models\"\"\"\n    def __init__(self):\n        self.model_id = \"gpt-4-turbo-preview\"\n        self.provider = \"openai\"\n        self.version = \"preview\"\n        self.deprecated = True\n"
+    },
+    {
+      "filepath": "utils/constants.py",
+      "confidence": 0.72725,
+      "file_content": "\n\"\"\"Constants for the application\"\"\"\n\nOPENAI_MODEL = \"gpt-4-turbo-preview\"\nOPENAI_BACKUP = \"gpt-4\"\nDEFAULT_TEMPERATURE = 0.7\n"
+    },
+    {
+      "filepath": "config/openai_config.yaml",
+      "confidence": 0.7208125,
+      "file_content": "\nopenai:\n  model: \"gpt-4-turbo-preview\"\n  endpoint: \"https://api.openai.com/v1\"\n  timeout: 30\n"
+    },
+    {
+      "filepath": "llm_client.py",
+      "confidence": 0.6419375,
+      "file_content": "\n\"\"\"Main LLM client for OpenAI\"\"\"\nfrom openai import OpenAI\n\ndef get_openai_response(prompt: str) -> str:\n    \"\"\"Get response from OpenAI using GPT-4 turbo preview\"\"\"\n    client = OpenAI(api_key=\"sk-xxx\")\n    \n    response = client.chat.completions.create(\n        model=\"gpt-4-turbo-preview\",\n        messages=[\n            {\"role\": \"user\", \"content\": prompt}\n        ],\n        temperature=0.7,\n        max_tokens=2048\n    )\n    \n    return response.choices[0].message.content\n"
+    },
+    {
+      "filepath": "agents/chat_agent.py",
+      "confidence": 0.62,
+      "file_content": "\n\"\"\"Chat agent using OpenAI\"\"\"\nfrom llm_client import get_openai_response\n\nclass ChatAgent:\n    def __init__(self):\n        self.model = \"gpt-4-turbo-preview\"\n        self.temperature = 0.7\n    \n    def chat(self, user_input: str) -> str:\n        \"\"\"Chat with user\"\"\"\n        return get_openai_response(user_input)\n"
+    },
+    {
+      "filepath": "workflows/analysis.py",
+      "confidence": 0.617,
+      "file_content": "\n\"\"\"Analysis workflow\"\"\"\nfrom agents.chat_agent import ChatAgent\nfrom utils.constants import OPENAI_MODEL\n\nclass AnalysisWorkflow:\n    def __init__(self):\n        self.agent = ChatAgent()\n        self.current_model = OPENAI_MODEL\n    \n    def analyze_text(self, text: str) -> str:\n        \"\"\"Analyze text using ChatAgent\"\"\"\n        return self.agent.chat(f\"Analyze: {text}\")\n"
+    }
+  ]
+}

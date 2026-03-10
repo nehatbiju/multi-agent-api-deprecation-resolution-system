@@ -1,0 +1,18 @@
+# ---  (RAG Search Engine) ---
+chromadb
+sentence-transformers
+pytest
+
+# --- (Email & Research) ---
+pydantic
+tavily-python
+requests
+beautifulsoup4
+imapclient
+pyzmail36
+
+# --- ( AI Brain) ---
+langchain
+langchain-google-genai
+google-genai
+python-dotenv

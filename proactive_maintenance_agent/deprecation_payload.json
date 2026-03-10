@@ -1,0 +1,19 @@
+{
+    "deprecation_info": {
+        "provider": "Google",
+        "old_api_name": "gpt-4.1-mini",
+        "new_api_name": "gemini-2.0-flash-exp-vision",
+        "deadline": "2026-06-30",
+        "breaking_changes": [
+            "Updated response schema"
+        ]
+    },
+    "urgency": "LOW",
+    "days_remaining": 114,
+    "research_summary": {
+        "migration_guide_url": "https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash",
+        "schema_changes": "Schema updated. Requires new parameters.",
+        "pricing_changes": "Possible pricing updates.",
+        "performance_notes": "Improved latency."
+    }
+}
